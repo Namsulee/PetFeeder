@@ -95,18 +95,33 @@ void triggerSwitchEve()
   }
 }
 
+boolean translateIR()
+{
+  boolean fStatus = false;
+  switch(results.value)
+  {
+  case 0xFF30CF:  
+    Serial.println("button 1 ");
+    fStatus = true; 
+    break;
+
+  default: 
+    Serial.println(" other button   ");
+  }
+  delay(500);
+  return fStatus;
+}
 boolean checkIRData() {
   if (irrecv.decode(&results)) {  
-    if(!getStatusFlag()) {
-      setStatus(true);
-      digitalWrite(LED_PIN, HIGH);
-#if DEBUG_ENABLE
-      Serial.println(results.value, HEX); 
-#endif
+    if(translateIR()){
       irrecv.resume();
-      IR_STATUS = true;
-      return IR_STATUS;
-    } 
+      if(!getStatusFlag()) {
+        setStatus(true);
+        digitalWrite(LED_PIN, HIGH);
+        IR_STATUS = true;
+        return IR_STATUS;
+      } 
+    }
   }
   return false;
 }
