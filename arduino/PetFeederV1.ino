@@ -122,6 +122,7 @@ boolean checkIRData() {
         return IR_STATUS;
       } 
     }
+    irrecv.resume();
   }
   return false;
 }
