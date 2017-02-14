@@ -12,4 +12,6 @@ You can get these codes and utilize it in your projects.<br>
 ### 1.3 IR Receiver
  : Infraed receiver will take signal from IR sender to feed.
 ## 2.EV3
- : EV3 will be Pet feeder and distribute some food according to command of Arduino.
+ : EV3 will be distributor for feeding some food according to command of Arduino.
+## 3. App Inventor2
+ : Mobile Application which is sending a commnad to Arduino for feeding
